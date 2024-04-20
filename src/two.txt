@@ -1,0 +1,99 @@
+
+const INITIAL_MOVIE_LIST=[{name:"Dada",
+                           rating:8.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"remo",
+                           rating:8.7,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"ram",
+                           rating:7.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+                           
+                           {name:"good night",
+                           rating:7.9,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"ram",
+                           rating:7.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+                           
+                           {name:"good night",
+                           rating:7.9,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"}
+                          
+                          ]
+
+function App() {
+  const movielist=INITIAL_MOVIE_LIST
+  return (
+    <div className="App">
+    <div className='movie-list'>
+    {movielist.map((ml,index)=>(<Movie key={index} movie ={ml}/>))}
+    </div>
+    
+
+    
+    </div>
+  );
+}
+
+
+function Movie({movie}){
+  // const movie={
+  //   name:"Dada",
+  //   rating:8.5,
+  //   summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+  //   poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+
+
+  // };
+  const styles={
+    color:movie.rating>=8?"green":"red",
+  }
+  
+  const[show,setShow]=useState(true);
+
+  const  summaryStyles={
+    display:show?"block":"none",
+  }
+
+ 
+
+  return(
+    <div className='movie-container'>
+    <img src={ movie.poster} alt={movie.name}/>
+    <div className='movie-specs'>
+    <h2 className='movie-name'>{movie.name}</h2>
+    <p style ={styles} className='movie-rating'>⭐{movie.rating}</p>
+    </div>
+    <button onClick={()=>setShow(!show)}>Toggle description</button>
+    <p style={summaryStyles} className='movie-summary'>{movie.summary}</p>
+    <Counter/>
+ 
+    </div>
+    
+  )
+}
+
+function Counter(){
+  const[like,setlike] = useState(0);
+  const[dislike,setdislike] = useState(0);
+  return(
+  <div>
+  <button onClick={()=>{setlike(like+1)}}>👍{like}</button>
+  <button onClick={()=>{setdislike(dislike+1)}}>👎{dislike}</button>
+  </div>
+ )
+}
+
+
+
+export default App;

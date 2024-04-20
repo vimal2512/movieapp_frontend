@@ -1,0 +1,271 @@
+import logo from './logo.svg';
+import './App.css';
+import { useState } from 'react';
+import { Route, Routes,Link,useNavigate,useParams} from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+
+
+const INITIAL_MOVIE_LIST=[{name:"Dada",
+                           rating:8.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"remo",
+                           rating:8.7,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"ram",
+                           rating:7.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+                           
+                           {name:"good night",
+                           rating:7.9,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+                           {name:"ram",
+                           rating:7.5,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+                           
+                           {name:"good night",
+                           rating:7.9,
+                           summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+                           poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"}
+                          
+                          ]
+
+function App() {
+  
+  
+  return (
+    <div className="App">
+    <nav>
+    <ul>
+    <li><Link to ="/">Home</Link></li>
+    <li><Link to ="/movie">MovieList</Link></li>
+    <li><Link to ="/color-game">AddColor</Link></li>
+    <li><Link to ="/users">Users</Link></li>
+    <li><Link to ="/somewhere">SomeWhere</Link></li>
+
+    </ul>
+
+    </nav>
+
+     <Routes>
+         <Route path="/" element={<Home/>}/>
+         <Route path="/movie" element={<MovieList/>}/>
+         <Route path="/movie/:movieid" element={<MovieDetail/>}/>
+         <Route path="/color-game" element={<AddColor/>}/>
+         <Route path="/users" element={<UserList/>}/>
+         <Route path="*" element={<NotFoundPage/>}/>
+
+        
+     </Routes>
+
+    
+ 
+    </div>
+  );
+}
+
+function MovieDetail(){
+  const {movieid}=useParams()
+
+  return(
+    <div>Movie Detail Page {movieid}</div>
+  )
+}
+
+function Home(){
+  return(
+    <h1>Welcome to Book App</h1>
+  )
+}
+
+
+ function AddColor() {
+  const [color, setColor] = useState("red");
+  // const colorlist = ["green","skyblue","orange","pink"]
+  const [colorlist, setColorlist] = useState(["orange", "red", "pink"]);
+  const styles = {
+    fontSize: "24px",
+    backgroundColor: color
+  };
+  return (
+    <div>
+      <div>
+        <input onChange={(event) => setColor(event.target.value)} type="text" style={styles} value={color} />
+        <button onClick={() => setColorlist([...colorlist, color])}>addcolor</button>
+
+
+
+
+      </div>
+      {colorlist.map((clr) => (<ColorBox color={clr} />))}
+    </div>
+  );
+}
+
+
+function ColorBox({color}) {
+
+  const styles = {
+    backgroundColor: color,
+    height: "30px",
+    width: "300px",
+    marginTop: "10px"
+  };
+  return (
+    <div style={styles}></div>
+  );
+}
+
+
+function UserList(){
+  const users = [
+    {
+      name:"vimal",
+      pic:"https://th.bing.com/th/id/OIP.8sEQq9-fsOY0T-R-vYtVqgHaIB?w=180&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+    },
+    {
+      name:"raj",
+      pic:"https://th.bing.com/th/id/OIP.8sEQq9-fsOY0T-R-vYtVqgHaIB?w=180&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+    },
+    {
+      name:"ruban",
+      pic:"https://th.bing.com/th/id/OIP.8sEQq9-fsOY0T-R-vYtVqgHaIB?w=180&h=195&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+    },
+  ]
+  return(
+    <div>
+    {users.map((usr)=>(<Msg name={usr.name} pic={usr.pic}/>))}
+    </div>
+  )
+}
+
+function Msg({name,pic}){
+  
+  return(
+    <div className='user-container'>
+    <img  className="profile-pic" src={pic}  alt={name} />
+    <h1>{name}</h1>
+    <Counter/>
+
+    
+    </div>
+  )
+}
+
+function NotFoundPage(){
+  return(
+    <div>
+    <img src="https://th.bing.com/th?id=OIP.qdFdhbR00beEaIKDI_WDCwHaFj&w=288&h=216&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2" alt="404" />
+    
+    </div>
+  )
+}
+
+function MovieList(){
+  //const movielist=INITIAL_MOVIE_LIST
+  const[name,setName]=useState("");
+  const[poster,setPoster]=useState("");
+  const[rating,setRating]=useState("");
+  const[summary,setSummary]=useState("");
+  const[movielist,setMovieList]=useState(INITIAL_MOVIE_LIST)
+  return(
+  <div>
+    <div className='add-book-form'>
+
+    <TextField variant="standard" label="Name"  onChange={(event)=>setName(event.target.value)} type="text" placeholder='enter name' />
+    <TextField variant="standard" label="Poster" onChange={(event)=>setPoster(event.target.value)} type="text" placeholder='enter poster' />
+    <TextField variant="standard" label="Rating" onChange={ (event)=>setRating(event.target.value)}type="text" placeholder='enter rating'/>
+    <TextField variant="standard" label="Summary" onChange={ (event)=>setSummary(event.target.value)} type="text" placeholder='enter summary' />
+    <Button variant="contained" onClick={()=>{
+      const newMovie={
+        name:name,
+        poster:poster,
+        rating:rating,
+        summary:summary,}
+
+      setMovieList([...movielist,newMovie])
+    }}>Add Movie</Button>
+
+    
+   
+    <div className='movie-list'>
+    {movielist.map((ml,index)=>(<Movie key={index} movie ={ml} id={index}/>))}
+   
+    </div>
+    </div>
+    </div>
+  )
+}
+
+
+function Movie({movie,id}){
+  // const movie={
+  //   name:"Dada",
+  //   rating:8.5,
+  //   summary:"Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+  //   poster:"https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+
+
+  // };
+  const styles={
+    color:movie.rating>=8?"green":"red",
+  }
+  
+  const[show,setShow]=useState(true);
+
+  const  summaryStyles={
+    display:show?"block":"none",
+  }
+
+ const navigate=useNavigate()
+
+  return(
+    <div className='movie-container'>
+    <img src={ movie.poster} alt={movie.name}/>
+    <div className='movie-specs'>
+    <h2 className='movie-name'>{movie.name}-{id}</h2>
+    <p style ={styles} className='movie-rating'>⭐{movie.rating}</p>
+    </div>
+    <button onClick={()=>setShow(!show)}>Toggle description</button>
+    <button onClick={()=>navigate("/movie/"+id)}>info</button>
+   
+    <p style={summaryStyles} className='movie-summary'>{movie.summary}</p>
+   
+    <Counter/>
+ 
+    </div>
+    
+  )
+}
+
+function Counter(){
+  const[like,setlike] = useState(0);
+  const[dislike,setdislike] = useState(0);
+  return(
+  <div>
+  <IconButton aria-label="like-btn" color="primary" onClick={()=>{setlike(like+1)}} >
+  👍 {like}
+</IconButton>
+<IconButton aria-label="dislike-btn" color="error" onClick={()=>{setdislike(dislike+1)}} >
+👎{dislike}
+</IconButton>
+   {/*<button onClick={()=>{setlike(like+1)}}>👍{like}</button>
+  <button onClick={()=>{setdislike(dislike+1)}}>👎{dislike}</button>*/}
+  </div>
+ )
+}
+
+
+
+
+export default App;

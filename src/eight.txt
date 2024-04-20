@@ -1,0 +1,23 @@
+import { useParams } from 'react-router-dom';
+
+export function MovieDetail({ movielist }) {
+  const { movieid } = useParams();
+  const movie = movielist[movieid];
+  console.log(movielist);
+  console.log(movie);
+
+  return (
+ 
+    
+    <div className='movie-detail-container'>
+    <iframe width="100%" height="500" src="https://www.youtube.com/embed/23mMdgo0prk" title="Dada - Official Trailer | Kavin | Aparna Das | Ganesh K Babu | S.Ambeth Kumar | Olympia Movies" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div className='movie-specs'>
+    <h2 className='movie-name'>{movie.name}</h2>
+    <p className='movie-rating'>⭐{movie.rating}</p>
+    </div>
+    <p  className='movie-summary'>{movie.summary}</p>
+    </div>
+    
+  
+  );
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Dada",
+    "rating": 8.5,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/23mMdgo0prk"
+  },
+
+  {
+    "name": "remo",
+    "rating": 8.7,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/GEB4qrrWIgs"
+  },
+
+  {
+    "name": "super deluxe",
+    "rating": 7.5,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/3-Xq_Zz3nPA"
+  },
+
+  {
+    "name": "good night",
+    "rating": 7.9,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/eLPePlnFoho"
+  },
+
+  {
+    "name": "fight club",
+    "rating": 7.5,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/oQVhwMYRgFY"
+  },
+
+  {
+    "name": "mankatha",
+    "rating": 9,
+    "summary": "Dada is an emotional drama about a young man dealing with becoming a parent, out of the blue, with a lot of maturity",
+    "poster": "https://th.bing.com/th?id=OIP.7l1bfGe-kAEZE_VaTGVEeAHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2",
+    "trailer": "https://www.youtube.com/embed/vHESM8iR1JE"
+  }
+]

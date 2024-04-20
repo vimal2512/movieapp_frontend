@@ -1,0 +1,22 @@
+
+//app
+useEffect(()=>{
+    fetch("")
+    .then((res)=>res.json())
+    .then((data)=>{
+        setMovieList(data)
+    })
+},[])
+
+
+//movielist
+
+useEffect(()=>{
+    fetch("",{
+        method:"POST"
+    })
+    .then((data)=>data.json())
+    .then((mvl)=>{
+        setMovieList(mvl)
+    })
+},[])

@@ -1,0 +1,108 @@
+
+function App() {
+
+  const people = ["vimal","barathi","udhaya","mohan"]
+
+  const users=[
+  {name:"vimal",
+  pic:"https://th.bing.com/th?id=OIP.0l7k5zqRUVQ5Yq9eTpW2LgHaLJ&w=203&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+  {name:"barathi",
+  pic:"https://th.bing.com/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"},
+
+  {name:"udhaya",
+  pic:"https://th.bing.com/th?id=OIP.-puymjZbrwsu8LEduXeIVQHaLH&w=204&h=306&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"}]
+  
+   
+ 
+ 
+
+
+  
+  
+  return (
+    <div className="App">
+  
+ 
+  {people.map((userName)=><Welcome name = {userName}/>)}
+
+ {users.map((usr)=><Msg name={usr.name} pic={usr.pic}/>)}
+ 
+      
+    </div>
+  );
+}
+
+
+function Welcome({name}){
+  return(
+    <div>
+    <h1>{name}</h1>
+    </div>
+  )
+}
+
+function Msg({name,pic}){
+  return(
+    <div>
+    <img src={pic} alt={name} />
+    <h1>{name}</h1>
+    <Counter/>
+   
+    </div>
+  )
+}
+
+function Counter(){
+  const[like,setLike]=useState(0)
+  const[dislike,setDislike]=useState(0)
+  return(
+    <div>
+      <button onClick={()=>{setLike(like+1)}}>{like}</button>
+      <button onClick={()=>{setDislike(dislike+1)}}>{dislike}</button>
+    
+    </div>
+  )
+}
+
+export default App;
+
+
+
+
+export function AddColor() {
+  const [color, setColor] = useState("red");
+  //const colorlist = ["green","skyblue","orange","pink"]
+  const [colorlist, setColorlist] = useState(["orange", "red", "pink"]);
+  const styles = {
+    fontSize: "24px",
+    backgroundColor: color
+  };
+  return (
+    <div>
+      <div>
+        <input onChange={(event) => setColor(event.target.value)} type="text" style={styles} value={color} />
+        <button onClick={() => setColorlist([...colorlist, color])}>addcolor</button>
+
+
+
+
+      </div>
+      {colorlist.map((clr) => (<ColorBox color={clr} />))}
+    </div>
+  );
+}
+
+export function ColorBox({color}) {
+
+  const styles = {
+    backgroundColor: "skyblue",
+    height: "30px",
+    width: "300px",
+    marginTop: "10px"
+  };
+  return (
+    <div style={styles}></div>
+  );
+}
+
